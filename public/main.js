@@ -1,18 +1,18 @@
-import {Lieu, Patients, Doctor, Diagnostique, Traitement} from "./classes.js";
+import {Lieu, Patient, Doctor, Diagnostique, Traitement} from "./classes.js";
 import{cris} from "./function.js";
  
 
 // Definition des patients 
 
-let marcus = new Patients ("Marcus", "mal indenté", 100, [], "malade");
+let marcus = new Patient ("Marcus", "mal indenté", 100, [], "malade");
 
-let optimus = new Patients ("Optimus", "unsave", 200, [], "malade");
+let optimus = new Patient ("Optimus", "unsave", 200, [], "malade");
 
-let sangoku = new Patients ("Sangoku", "404", 80, [], "malade");
+let sangoku = new Patient ("Sangoku", "404", 80, [], "malade");
 
-let darthVader = new Patients ("DarthVader", "azmatique", 110, [], "malade");
+let darthVader = new Patient ("DarthVader", "azmatique", 110, [], "malade");
 
-let semicolon = new Patients ("Semicolon", "syntaxError", 60, [], "malade");
+let semicolon = new Patient ("Semicolon", "syntaxError", 60, [], "malade");
 
 // Definition des lieux
 
@@ -42,6 +42,7 @@ let azmatique = new Diagnostique("azmatique", "Ventoline");
 
 let syntaxError = new Diagnostique("syntaxError", "f12+doc");
 
+let maladieListe = [mal_indenté, unsave, not_found, azmatique, syntaxError];
 // Definition des traitements 
 
 let ctrl = new Traitement("ctrl+maj+f", 60);
@@ -54,52 +55,70 @@ let ventoline = new Traitement ("ventoline", 40);
 
 let f12doc = new Traitement ("f12+doc", 20);
 
+let traitementListe = [ctrl,save,check,ventoline,f12doc];
+
     setInterval(cris,2000);
  
     // Marcus
-    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
-    Debugger.patientIn(marcus, salle_attente);
-    Debugger.diagnostique(marcus,mal_indenté);
-    Debugger.patientOut(marcus);
-    marcus.gotTo(pharmacie);
-    marcus.traitement(ctrl);
+    let i =0;
+    let j = 0;
+    let k = 0;
+    while(i < listePatient.length && j < maladieListe.length && k < traitementListe.length){
+        console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    Debugger.patientIn(listePatient[i], salle_attente);
+    Debugger.diagnostique(listePatient[i],maladieListe[j]);
+    Debugger.patientOut(listePatient[i]);
+    listePatient[i].gotTo(pharmacie);
+   listePatient[i].traitement(traitementListe[k]);
     console.log("-----------");
+    i++;
+    j++;
+    k++;
+    }
+    
+    // console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    // Debugger.patientIn(marcus, salle_attente);
+    // Debugger.diagnostique(marcus,mal_indenté);
+    // Debugger.patientOut(marcus);
+    // marcus.gotTo(pharmacie);
+    // marcus.traitement(ctrl);
+    // console.log("-----------");
 
-    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
-    Debugger.patientIn(optimus , salle_attente);
-    Debugger.diagnostique(optimus ,unsave);
-    Debugger.patientOut(optimus);
-    optimus.gotTo(pharmacie);
-    optimus.traitement(save);
-    console.log("-----------");
+    // console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    // Debugger.patientIn(optimus , salle_attente);
+    // Debugger.diagnostique(optimus ,unsave);
+    // Debugger.patientOut(optimus);
+    // optimus.gotTo(pharmacie);
+    // optimus.traitement(save);
+    // console.log("-----------");
 
-    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
-    Debugger.patientIn(sangoku , salle_attente);
-    Debugger.diagnostique(sangoku,not_found);
-    Debugger.patientOut(sangoku);
-    sangoku.gotTo(pharmacie);
-    sangoku.traitement(check);
-    console.log("-----------");
+    // console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    // Debugger.patientIn(sangoku , salle_attente);
+    // Debugger.diagnostique(sangoku,not_found);
+    // Debugger.patientOut(sangoku);
+    // sangoku.gotTo(pharmacie);
+    // sangoku.traitement(check);
+    // console.log("-----------");
 
 
 
-    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
-    Debugger.patientIn(darthVader , salle_attente);
-    Debugger.diagnostique(darthVader,azmatique);
-    Debugger.patientOut(darthVader);
-    darthVader.gotTo(pharmacie);
-    darthVader.traitement(ventoline);
-    console.log("-----------");
+    // console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    // Debugger.patientIn(darthVader , salle_attente);
+    // Debugger.diagnostique(darthVader,azmatique);
+    // Debugger.patientOut(darthVader);
+    // darthVader.gotTo(pharmacie);
+    // darthVader.traitement(ventoline);
+    // console.log("-----------");
     
 
 
-    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
-    Debugger.patientIn(semicolon , salle_attente);
-    Debugger.diagnostique(semicolon,syntaxError);
-    Debugger.patientOut(semicolon);
-    semicolon.gotTo(pharmacie);
-    semicolon.traitement(f12doc);
-    console.log("-----------");
+    // console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    // Debugger.patientIn(semicolon , salle_attente);
+    // Debugger.diagnostique(semicolon,syntaxError);
+    // Debugger.patientOut(semicolon);
+    // semicolon.gotTo(pharmacie);
+    // semicolon.traitement(f12doc);
+    // console.log("-----------");
 
-    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
+    // console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
     

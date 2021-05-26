@@ -5,7 +5,7 @@ export class Lieu {
     }
 }
 
-export class Patients {
+export class Patient {
     constructor(nom, maladie, argent, poche, etatSante) {
         this.nom = nom,
             this.maladie = maladie,
@@ -34,6 +34,7 @@ export class Patients {
 
             lieu.personnes.push(this.nom);
             console.log(`${this.nom} est allé à la ${lieu.nom}`)
+            lieu.personnes.splice(lieu.personnes.indexOf(this.nom), 1);
 
         }
 
