@@ -1,4 +1,5 @@
 import {Lieu, Patients, Doctor, Diagnostique, Traitement} from "./classes.js";
+import{cris} from "./function.js";
  
 
 // Definition des patients 
@@ -53,8 +54,8 @@ let ventoline = new Traitement ("ventoline", 40);
 
 let f12doc = new Traitement ("f12+doc", 20);
 
-
-
+    setInterval(cris,2000);
+ 
     // Marcus
     console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
     Debugger.patientIn(marcus, salle_attente);
@@ -99,4 +100,6 @@ let f12doc = new Traitement ("f12+doc", 20);
     semicolon.gotTo(pharmacie);
     semicolon.traitement(f12doc);
     console.log("-----------");
+
+    console.log(`Dans la ${salle_attente.nom} il y a ${salle_attente.personnes.length} personnes`);
     
